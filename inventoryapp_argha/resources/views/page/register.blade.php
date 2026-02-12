@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Sign Up</title>
-</head>
-    <body>
-        <h1>Buat Account Baru!</h1>
+@extends('layout.master')
+@section('title')
+    Daftar
+@endsection
+@section('content')
+    <h1>Buat Account Baru!</h1>
         <h2>Sign Up Form</h2>
         <a href="/">Kembali</a>
         <form action="/welcome" method="POST">
@@ -45,5 +42,4 @@
         <textarea name="message" rows="10" cols="30"></textarea><br><br>
         <input type="submit" value="Sign Up">
         </form>
-    </body>
-</html>
+@endsection
