@@ -4,7 +4,14 @@
 @endsection
 @section('content')
 
-<a href="" class="btn btn-primary btn-sm my-2">Tampilkan</a>
+<a href="/categories/create" class="btn btn-primary btn-sm my-2">Tambahkan</a>
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <table class="table">
   <thead>
     <tr>
@@ -19,9 +26,19 @@
         <th scope="row">{{$loop->iteration}}</th>
         <td>{{$item->name}}</td>
         <td>
-            <a href="/categories/{{$item->id}}" class="btn btn-sm btn-info">Detail</a></td>
+            <form action="/categories/{{$item->id}}" method="POST">
+                @csrf
+                @method("DELETE")
+                <a href="/categories/{{$item->id}}" class="btn btn-sm btn-info">Detail</a>
+                <a href="/categories/{{$item->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+            </form>
+        </td>
         </tr>
     @empty
+    <tr>
+        <td>Kategori masih kosong, silahkan tambahkan terlebih dahulu</td>
+    </tr>
         
     @endforelse
     

@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-    Tambah Kategori
+    Detail Kategori
 @endsection
 @section('content')
     <h1 class="text-primary">{{$categories->name}}</h1>
